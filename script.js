@@ -78,7 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
         verticalMenu.style.display = "none"; // Hide the menu if clicked outside
       }
     });
-  
+      document.addEventListener("touchstart", (e) => {
+        if (!verticalMenu.contains(e.target) && e.target !== menuIcon) {
+            verticalMenu.style.display = "none";
+        }
+    });
     // Ensure the menu remains hidden on screen resize above 1024px
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1024) {
