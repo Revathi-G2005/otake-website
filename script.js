@@ -78,11 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
         verticalMenu.style.display = "none"; // Hide the menu if clicked outside
       }
     });
-      document.addEventListener("touchstart", (e) => {
-        if (!verticalMenu.contains(e.target) && e.target !== menuIcon) {
-            verticalMenu.style.display = "none";
-        }
-    });
+    menuIcon.addEventListener("touchstart", (e) => {
+  e.stopPropagation();
+  if (window.innerWidth <= 1024) {
+    if (verticalMenu.style.display === "none") {
+      verticalMenu.style.display = "flex"; // Show the menu
+    } else {
+      verticalMenu.style.display = "none"; // Hide the menu
+    }
+  }
+});
     // Ensure the menu remains hidden on screen resize above 1024px
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1024) {
