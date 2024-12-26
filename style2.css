@@ -280,6 +280,7 @@
     top: 60px; /* Distance from the top */
     right: 90px; /* Distance from the right */
     z-index: 1000; /* Ensures the menu is on top */
+    cursor: pointer;
   }
   
   /* Responsive adjustments for tablet and mobile */
